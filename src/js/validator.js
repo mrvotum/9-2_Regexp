@@ -4,7 +4,7 @@ class Validator {
     if (this.check.match(/^[ ]|\ {2}|[ ]$/) !== null) {
       throw TypeError('Проблемы с пробелами');
     }
-    return this.check.match(/[a-zа-я0-9\-\ ]+/gi) !== null;
+    return this.check.match(/[a-zA-ZА-Яа-я0-9\-\ ]+/gi) !== null;
   }
 }
 
