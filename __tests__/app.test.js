@@ -4,25 +4,32 @@ test('Name is correct', () => {
   const input = new Validator();
 
   const expected = true; // ожидает
-  const received = input.validateUsername('Rick Cucumber-77'); // получает
+  const received = input.validateUsername('Rick Cu-cumber'); // получает
   expect(received).toBe(expected); // сравнивает
 });
 
 test('The first letter is space = error', () => {
   const input = new Validator();
 
-  const received = () => input.validateUsername(' Rick Cucumber-77'); // получает ошибку
+  const received = () => input.validateUsername(' Rick Cu-cumber'); // получает ошибку
   expect(received).toThrow(); // ждёт ошибку
 });
 
 test('The last letter is space = error', () => {
   const input = new Validator();
 
-  const received = () => input.validateUsername('Rick Cucumber-77 '); // получает ошибку
+  const received = () => input.validateUsername('Rick Cu-cumber '); // получает ошибку
   expect(received).toThrow(); // ждёт ошибку
 });
 
 test('Double space = error', () => {
+  const input = new Validator();
+
+  const received = () => input.validateUsername('Rick  Cu-cumber'); // получает ошибку
+  expect(received).toThrow(); // ждёт ошибку
+});
+
+test('Using numbers in the name = error', () => {
   const input = new Validator();
 
   const received = () => input.validateUsername('Rick  Cucumber-77'); // получает ошибку
